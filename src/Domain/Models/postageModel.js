@@ -4,10 +4,10 @@ class Postage extends Model {
     static init ( connection ) {
         super.init ( {
             title: DataTypes.STRING,
-            tagId: DataTypes.NUMBER,
+            tagId: DataTypes.NUMBER || null,
             description: DatTypes.TEXT,
-            author: Datatypes.STRING,
-            date: DataTypes.DATEONLY,
+            author: Datatypes.STRING || null,
+            date: DataTypes.DATEONLY || null,
             visualization: DataTypes.BOOLEAN
         }, {
             sequelize: connection

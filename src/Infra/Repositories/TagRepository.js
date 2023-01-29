@@ -10,9 +10,9 @@ const createTag = async (req, res) => {
     );
 
     if( !tag.name )
-        res.status(400).json({ message: 'preencha o campo corretamente.' });
+        return res.status(400).json({ message: 'preencha o campo corretamente.' });
     else if ( tag.name.length > 32 )
-        res.status(400).json({ message: 'nome da tag muito grande.' });
+        return res.status(400).json({ message: 'nome da tag muito grande.' });
 
     if (!tag)
         return res.status(400).json({ message: 'Não foi possível criar a tag.' });
@@ -26,8 +26,8 @@ const getTags = async (req, res) => {
     const tags = await Tag.findAll();
 
     if (!tags)
-        res.sendStatus(404);
-    res.json(tags);
+        return res.sendStatus(404);
+    return res.json(tags);
 }
 
 const getTagById = async (req, res) => {
@@ -35,8 +35,8 @@ const getTagById = async (req, res) => {
     const tag = await Tag.findOne({ where: id = query });
 
     if (!tag)
-        res.sendStatus(400);
-    res.json(tag);
+        return res.sendStatus(400);
+    return res.json(tag);
 }
 
 const getTagByName = async (req, res) => {
@@ -49,8 +49,8 @@ const getTagByName = async (req, res) => {
     });
 
     if(!tags)
-        res.sendStatus(404);
-    res.json(tags);
+        return res.sendStatus(404);
+    return res.json(tags);
 }
 //#endregion
 
