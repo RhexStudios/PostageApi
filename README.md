@@ -1,5 +1,4 @@
-# RhexApiTemplate
-Template de Apis da Rhex
+# PostageApi
 
 ## Modulos externos sendo utilizados no momento:
  - Express
